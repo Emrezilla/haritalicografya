@@ -54,17 +54,6 @@
             padding: 40px 0;
         }
 
-        .question-btn {
-            padding: 15px 40px;
-            font-size: 22px;
-            font-weight: bold;
-            background-color: var(--secondary);
-            color: white;
-            border: none;
-            border-radius: 8px;
-            cursor: default;
-        }
-
         .ready-btn {
             padding: 20px 60px;
             font-size: 26px;
@@ -139,7 +128,7 @@
             margin-top: 10px;
         }
 
-        /* Özel Kategori Renkleri */
+        /* Kategori Renkleri */
         .btn-daglar { background-color: #8B4513; }      
         .btn-ovalar { background-color: #27ae60; }      
         .btn-platolar { background-color: #d35400; }    
@@ -261,7 +250,6 @@
         
         .home-btn:hover { background-color: #2980b9; }
 
-        /* Geliştirici Etiketi */
         .developer-credit {
             position: fixed;
             bottom: 15px;
@@ -290,7 +278,6 @@
         .developer-credit a:hover {
             text-decoration: underline;
         }
-
     </style>
 </head>
 <body>
@@ -301,7 +288,6 @@
         
         <div id="start-screen">
             <h2>Türkiye Coğrafyasını Keşfetmeye Hazır mısın?</h2>
-            
             <button class="ready-btn" onclick="showMenu()">Başla</button>
         </div>
 
@@ -354,100 +340,100 @@
     </div>
 
     <script>
-        // Haritaya göre hassas bir şekilde yeniden kalibre edilmiş veritabanı
+        // Görseldeki (1000005216.png) harita boşluklarına göre tam kalibre edilmiş DB
         const db = {
             daglar: [
-                { answer: "Ağrı Dağı", type: "volkanik", x: 93.5, y: 33.5, options: ["Tecer", "Ağrı Dağı", "Ilgaz Dağı", "Kaçkar Dağı"] },
-                { answer: "Erciyes Dağı", type: "volkanik", x: 50.5, y: 53.0, options: ["Hasan Dağı", "Uludağ", "Süphan Dağı", "Erciyes Dağı"] },
-                { answer: "Melendiz Dağı", type: "volkanik", x: 44.5, y: 59.0, options: ["Melendiz Dağı", "Yıldız", "Dedegöl Dağı", "Yalnızçam Dağı"] },
-                { answer: "Uludağ", type: "volkanik", x: 18.5, y: 29.5, options: ["Uludağ", "Kaz Dağları", "Allahuekber Dağları", "Toroslar"] },
-                { answer: "Nemrut", type: "volkanik", x: 83.5, y: 52.0, options: ["Melendiz", "Aydın Dağları", "Ilgaz Dağları", "Nemrut"] },
-                { answer: "Yıldız", type: "kivrimli", x: 12.0, y: 12.0, options: ["Yunt", "Kaz Dağları", "Yıldız", "Samanlık"] },
-                { answer: "Bey", type: "kivrimli", x: 25.5, y: 72.0, options: ["Uludağ", "Mercan Dağları", "Canik Dağları", "Bey"] },
-                { answer: "Bolkar", type: "kivrimli", x: 44.5, y: 69.5, options: ["Uludağ", "Aydın Dağları", "Bolkar", "Nemrut"] },
-                { answer: "Menteşe", type: "kirik", x: 9.5, y: 65.0, options: ["Manisa(Kula)", "Kaz Dağları", "Hasan", "Menteşe"] },
-                { answer: "Hasan", type: "volkanik", x: 41.5, y: 58.0, options: ["Uludağ", "Tecer", "Hasan", "Nemrut"] },
-                { answer: "Palandöken", type: "kivrimli", x: 77.0, y: 37.0, options: ["Erciyes", "Palandöken", "Ilgaz Dağları", "Cilo(Sat)"] },
-                { answer: "Madra", type: "kirik", x: 7.0, y: 41.0, options: ["Madra", "Tendürek", "Mercan Dağları", "Menteşe"] },
-                { answer: "Tendürek", type: "volkanik", x: 91.0, y: 42.0, options: ["Karacadağ", "Kaz Dağları", "Tendürek", "Nemrut"] },
-                { answer: "Yunt", type: "kirik", x: 7.5, y: 46.0, options: ["Bolkar", "Kaz Dağları", "Ilgaz Dağları", "Yunt"] },
-                { answer: "Küre", type: "kivrimli", x: 39.5, y: 15.0, options: ["Yıldız", "Amanos(Nur)", "Küre", "Sultan"] },
-                { answer: "Tahtalı", type: "kivrimli", x: 55.0, y: 59.0, options: ["Mescit", "Canik", "Samanlı", "Tahtalı"] },
-                { answer: "Tecer", type: "kivrimli", x: 58.5, y: 44.0, options: ["Tecer", "Giresun", "Yıldız", "Yunt"] },
-                { answer: "Karadağ", type: "volkanik", x: 39.0, y: 63.0, options: ["Karadağ", "Ağrı", "Ilgaz Dağları", "Giresun"] },
-                { answer: "Bozdağ", type: "kirik", x: 10.5, y: 51.5, options: ["Bolkar", "Kaz Dağları", "Ilgaz Dağları", "Yunt"] },
-                { answer: "Mercan", type: "kivrimli", x: 69.5, y: 42.0, options: ["Menteşe", "Sündiken", "Mercan", "Kaz Dağları"] },
-                { answer: "Sultan", type: "kivrimli", x: 30.5, y: 55.5, options: ["Sultan", "Samanlı", "Mercan", "Sündiken"] },
-                { answer: "Sündiken", type: "kivrimli", x: 27.5, y: 36.5, options: ["Mescit", "Geyik", "Nemrut", "Sündiken"] },
-                { answer: "Mescit", type: "kivrimli", x: 78.5, y: 31.0, options: ["Bolu", "Mescit", "Süphan", "Tahtalı"] },
-                { answer: "Allahuekber", type: "kivrimli", x: 84.5, y: 30.0, options: ["Allahuekber", "Küre", "Ilgaz", "Tecer"] },
-                { answer: "Dedegöl Dağı", type: "kivrimli", x: 28.5, y: 65.0, options: ["Ağrı Dağı", "Sündiken Dağları", "Dedegöl Dağı", "Giresun"] },
-                { answer: "Canik", type: "kivrimli", x: 55.5, y: 26.0, options: ["Köroğlu", "Canik", "Ilgaz Dağları", "Nemrut"] },
-                { answer: "Aydın", type: "kirik", x: 10.5, y: 56.5, options: ["Tendürek", "Kaz Dağları", "Manisa(Kula)Dağları", "Aydın"] },
-                { answer: "Kaçkar Dağı", type: "kivrimli", x: 79.5, y: 24.0, options: ["Kaz Dağları", "Kaçkar Dağı", "Küre Dağları", "Yalnızçam"] },
-                { answer: "Süphan Dağı", type: "volkanik", x: 87.5, y: 46.5, options: ["Karacadağ", "Palandöken", "Süphan Dağı", "Allahuekber Dağı"] },
-                { answer: "Köroğlu Dağı", type: "kivrimli", x: 33.5, y: 29.0, options: ["Yunt Dağı", "Menteşe", "Köroğlu Dağı", "Cilo (Buzul) Dağı"] },
-                { answer: "Cilo (Buzul) Dağı", type: "kivrimli", x: 94.5, y: 62.0, options: ["Cudi Dağı", "Güneydoğu Toroslar", "Cilo (Buzul) Dağı", "Nemrut Dağı"] },
-                { answer: "Kaz Dağları", type: "kirik", x: 7.5, y: 34.5, options: ["Madra Dağı", "Yunt Dağı", "Aydın Dağları", "Kaz Dağları"] },
-                { answer: "Ilgaz Dağları", type: "kivrimli", x: 41.5, y: 22.5, options: ["Ilgaz Dağları", "Köse Dağları", "Bozdağlar", "Menteşe Dağları"] },
-                { answer: "Aladağlar", type: "kivrimli", x: 49.0, y: 63.0, options: ["Bolkar", "Aladağlar", "Tahtalı Dağları", "Binboğa Dağları"] },
-                { answer: "Nur (Amanos) Dağları", type: "kirik", x: 55.5, y: 78.5, options: ["Nur (Amanos) Dağları", "Aladağlar", "Tahtalı", "Samanlı Dağları"] }
+                { answer: "Ağrı Dağı", type: "volkanik", x: 77.0, y: 44.0, options: ["Tecer", "Ağrı Dağı", "Ilgaz Dağı", "Kaçkar Dağı"] },
+                { answer: "Erciyes Dağı", type: "volkanik", x: 50.0, y: 57.5, options: ["Hasan Dağı", "Uludağ", "Süphan Dağı", "Erciyes Dağı"] },
+                { answer: "Melendiz Dağı", type: "volkanik", x: 46.5, y: 61.5, options: ["Melendiz Dağı", "Yıldız", "Dedegöl Dağı", "Yalnızçam Dağı"] },
+                { answer: "Uludağ", type: "volkanik", x: 31.0, y: 41.0, options: ["Uludağ", "Kaz Dağları", "Allahuekber Dağları", "Toroslar"] },
+                { answer: "Nemrut", type: "volkanik", x: 71.5, y: 56.5, options: ["Melendiz", "Aydın Dağları", "Ilgaz Dağları", "Nemrut"] },
+                { answer: "Yıldız", type: "kivrimli", x: 28.5, y: 28.0, options: ["Yunt", "Kaz Dağları", "Yıldız", "Samanlık"] },
+                { answer: "Bey", type: "kivrimli", x: 35.0, y: 72.0, options: ["Uludağ", "Mercan Dağları", "Canik Dağları", "Bey"] },
+                { answer: "Bolkar", type: "kivrimli", x: 46.5, y: 70.0, options: ["Uludağ", "Aydın Dağları", "Bolkar", "Nemrut"] },
+                { answer: "Menteşe", type: "kirik", x: 26.5, y: 67.0, options: ["Manisa(Kula)", "Kaz Dağları", "Hasan", "Menteşe"] },
+                { answer: "Hasan", type: "volkanik", x: 45.0, y: 61.0, options: ["Uludağ", "Tecer", "Hasan", "Nemrut"] },
+                { answer: "Palandöken", type: "kivrimli", x: 67.5, y: 46.5, options: ["Erciyes", "Palandöken", "Ilgaz Dağları", "Cilo(Sat)"] },
+                { answer: "Madra", type: "kirik", x: 25.0, y: 50.0, options: ["Madra", "Tendürek", "Mercan Dağları", "Menteşe"] },
+                { answer: "Tendürek", type: "volkanik", x: 76.0, y: 49.5, options: ["Karacadağ", "Kaz Dağları", "Tendürek", "Nemrut"] },
+                { answer: "Yunt", type: "kirik", x: 25.5, y: 53.5, options: ["Bolkar", "Kaz Dağları", "Ilgaz Dağları", "Yunt"] }, // TAM YERİNDE
+                { answer: "Küre", type: "kivrimli", x: 44.0, y: 30.0, options: ["Yıldız", "Amanos(Nur)", "Küre", "Sultan"] },
+                { answer: "Tahtalı", type: "kivrimli", x: 53.5, y: 61.5, options: ["Mescit", "Canik", "Samanlı", "Tahtalı"] },
+                { answer: "Tecer", type: "kivrimli", x: 55.5, y: 51.5, options: ["Tecer", "Giresun", "Yıldız", "Yunt"] },
+                { answer: "Karadağ", type: "volkanik", x: 43.5, y: 65.5, options: ["Karadağ", "Ağrı", "Ilgaz Dağları", "Giresun"] },
+                { answer: "Bozdağ", type: "kirik", x: 26.5, y: 57.5, options: ["Bolkar", "Kaz Dağları", "Ilgaz Dağları", "Yunt"] },
+                { answer: "Mercan", type: "kivrimli", x: 62.5, y: 50.0, options: ["Menteşe", "Sündiken", "Mercan", "Kaz Dağları"] },
+                { answer: "Sultan", type: "kivrimli", x: 38.5, y: 59.5, options: ["Sultan", "Samanlı", "Mercan", "Sündiken"] },
+                { answer: "Sündiken", type: "kivrimli", x: 37.0, y: 45.5, options: ["Mescit", "Geyik", "Nemrut", "Sündiken"] },
+                { answer: "Mescit", type: "kivrimli", x: 68.5, y: 42.0, options: ["Bolu", "Mescit", "Süphan", "Tahtalı"] },
+                { answer: "Allahuekber", type: "kivrimli", x: 72.0, y: 41.0, options: ["Allahuekber", "Küre", "Ilgaz", "Tecer"] },
+                { answer: "Dedegöl Dağı", type: "kivrimli", x: 37.0, y: 66.0, options: ["Ağrı Dağı", "Sündiken Dağları", "Dedegöl Dağı", "Giresun"] },
+                { answer: "Canik", x: 53.5, y: 37.5, type: "kivrimli", options: ["Köroğlu", "Canik", "Ilgaz Dağları", "Nemrut"] },
+                { answer: "Aydın", type: "kirik", x: 26.5, y: 60.5, options: ["Tendürek", "Kaz Dağları", "Manisa(Kula)Dağları", "Aydın"] },
+                { answer: "Kaçkar Dağları", type: "kivrimli", x: 68.5, y: 36.5, options: ["Kaz Dağları", "Kaçkar Dağı", "Küre Dağları", "Yalnızçam"] },
+                { answer: "Süphan Dağı", type: "volkanik", x: 74.0, y: 53.0, options: ["Karacadağ", "Palandöken", "Süphan Dağı", "Allahuekber Dağı"] },
+                { answer: "Köroğlu Dağı", type: "kivrimli", x: 40.5, y: 39.5, options: ["Yunt Dağı", "Menteşe", "Köroğlu Dağı", "Cilo (Buzul) Dağı"] },
+                { answer: "Cilo (Buzul) Dağı", type: "kivrimli", x: 78.5, y: 63.5, options: ["Cudi Dağı", "Güneydoğu Toroslar", "Cilo (Buzul) Dağı", "Nemrut Dağı"] },
+                { answer: "Kaz Dağları", type: "kirik", x: 25.0, y: 45.0, options: ["Madra Dağı", "Yunt Dağı", "Aydın Dağları", "Kaz Dağları"] },
+                { answer: "Ilgaz Dağları", type: "kivrimli", x: 45.0, y: 35.5, options: ["Ilgaz Dağları", "Köse Dağları", "Bozdağlar", "Menteşe Dağları"] },
+                { answer: "Aladağlar", type: "kivrimli", x: 49.0, y: 65.0, options: ["Bolkar", "Aladağlar", "Tahtalı Dağları", "Binboğa Dağları"] },
+                { answer: "Nur (Amanos) Dağları", type: "kirik", x: 53.5, y: 75.0, options: ["Nur (Amanos) Dağları", "Aladağlar", "Tahtalı", "Samanlı Dağları"] }
             ],
             ovalar: [
-                { answer: "Çukurova", type: "delta", x: 51.5, y: 76.0, options: ["Bafra Ovası", "Çukurova", "Gediz Ovası", "Harran Ovası"] },
-                { answer: "Konya Ovası", type: "tektonik", x: 37.5, y: 60.0, options: ["Muş Ovası", "Ergene Ovası", "Çarşamba Ovası", "Konya Ovası"] },
-                { answer: "Bafra Ovası", type: "delta", x: 51.0, y: 15.0, options: ["Çarşamba Ovası", "Bafra Ovası", "Sakarya Ovası", "Adapazarı Ovası"] },
-                { answer: "Çarşamba Ovası", type: "delta", x: 55.0, y: 18.0, options: ["Bafra Ovası", "Meriç Ovası", "Çarşamba Ovası", "Gediz Ovası"] },
-                { answer: "Harran Ovası", type: "tektonik", x: 71.0, y: 76.5, options: ["Ceylanpınar Ovası", "Suruç Ovası", "Altınbaşak", "Harran Ovası"] },
-                { answer: "Ergene Ovası", type: "tektonik", x: 10.5, y: 17.0, options: ["Ergene Ovası", "Bursa Ovası", "Karacabey Ovası", "Balıkesir Ovası"] },
-                { answer: "Iğdır Ovası", type: "tektonik", x: 93.5, y: 31.5, options: ["Muş Ovası", "Elbistan Ovası", "Iğdır Ovası", "Malatya Ovası"] },
-                { answer: "Gediz Ovası", type: "tektonik", x: 11.5, y: 48.5, options: ["Bakırçay Ovası", "Gediz Ovası", "Büyük Menderes", "Küçük Menderes"] },
-                { answer: "Muş Ovası", type: "tektonik", x: 81.5, y: 49.0, options: ["Erzincan Ovası", "Tercan Ovası", "Muş Ovası", "Pasinler Ovası"] },
-                { answer: "Amik Ovası", type: "tektonik", x: 55.5, y: 84.0, options: ["Amik Ovası", "Çukurova", "Silifke Ovası", "Antalya Ovası"] },
-                { answer: "Elmalı Ovası", type: "karstik", x: 23.0, y: 71.0, options: ["Bafra Ovası", "Elmalı Ovası", "Konya Ovası", "Ergene Ovası"] },
-                { answer: "Tefenni Ovası", type: "karstik", x: 21.5, y: 66.0, options: ["Tefenni Ovası", "Çukurova", "Harran Ovası", "Iğdır Ovası"] },
-                { answer: "Develi Ovası", type: "volkanik", x: 50.0, y: 55.5, options: ["Çarşamba Ovası", "Gediz Ovası", "Develi Ovası", "Muş Ovası"] },
-                { answer: "Çaldıran Ovası", type: "volkanik", x: 89.5, y: 44.0, options: ["Amik Ovası", "Çaldıran Ovası", "Bursa Ovası", "Antalya Ovası"] }
+                { answer: "Çukurova", type: "delta", x: 51.0, y: 73.5, options: ["Bafra Ovası", "Çukurova", "Gediz Ovası", "Harran Ovası"] },
+                { answer: "Konya Ovası", type: "tektonik", x: 42.5, y: 63.0, options: ["Muş Ovası", "Ergene Ovası", "Çarşamba Ovası", "Konya Ovası"] },
+                { answer: "Bafra Ovası", type: "delta", x: 51.0, y: 30.5, options: ["Çarşamba Ovası", "Bafra Ovası", "Sakarya Ovası", "Adapazarı Ovası"] },
+                { answer: "Çarşamba Ovası", type: "delta", x: 53.5, y: 32.5, options: ["Bafra Ovası", "Meriç Ovası", "Çarşamba Ovası", "Gediz Ovası"] },
+                { answer: "Harran Ovası", type: "tektonik", x: 63.5, y: 73.5, options: ["Ceylanpınar Ovası", "Suruç Ovası", "Altınbaşak", "Harran Ovası"] },
+                { answer: "Ergene Ovası", type: "tektonik", x: 26.5, y: 32.0, options: ["Ergene Ovası", "Bursa Ovası", "Karacabey Ovası", "Balıkesir Ovası"] },
+                { answer: "Iğdır Ovası", type: "tektonik", x: 77.0, y: 42.0, options: ["Muş Ovası", "Elbistan Ovası", "Iğdır Ovası", "Malatya Ovası"] },
+                { answer: "Gediz Ovası", type: "tektonik", x: 27.5, y: 55.0, options: ["Bakırçay Ovası", "Gediz Ovası", "Büyük Menderes", "Küçük Menderes"] },
+                { answer: "Muş Ovası", type: "tektonik", x: 70.0, y: 54.5, options: ["Erzincan Ovası", "Tercan Ovası", "Muş Ovası", "Pasinler Ovası"] },
+                { answer: "Amik Ovası", type: "tektonik", x: 53.5, y: 79.5, options: ["Amik Ovası", "Çukurova", "Silifke Ovası", "Antalya Ovası"] },
+                { answer: "Elmalı Ovası", type: "karstik", x: 34.0, y: 71.0, options: ["Bafra Ovası", "Elmalı Ovası", "Konya Ovası", "Ergene Ovası"] },
+                { answer: "Tefenni Ovası", type: "karstik", x: 33.5, y: 67.0, options: ["Tefenni Ovası", "Çukurova", "Harran Ovası", "Iğdır Ovası"] },
+                { answer: "Develi Ovası", type: "volkanik", x: 50.0, y: 59.5, options: ["Çarşamba Ovası", "Gediz Ovası", "Develi Ovası", "Muş Ovası"] },
+                { answer: "Çaldıran Ovası", type: "volkanik", x: 75.0, y: 51.0, options: ["Amik Ovası", "Çaldıran Ovası", "Bursa Ovası", "Antalya Ovası"] }
             ],
             platolar: [
-                { answer: "Haymana Platosu", type: "tabaka", x: 36.5, y: 42.5, options: ["Haymana Platosu", "Bozok Platosu", "Obruk Platosu", "Taşeli Platosu"] },
-                { answer: "Cihanbeyli Platosu", type: "tabaka", x: 36.0, y: 50.0, options: ["Uzunyayla", "Cihanbeyli Platosu", "Obruk", "Yazılıkaya"] },
-                { answer: "Obruk Platosu", type: "tabaka", x: 39.5, y: 57.0, options: ["Haymana", "Cihanbeyli", "Obruk Platosu", "Bozok"] },
-                { answer: "Bozok Platosu", type: "tabaka", x: 49.0, y: 41.5, options: ["Bozok Platosu", "Uzunyayla", "Gaziantep Platosu", "Şanlıurfa Platosu"] },
-                { answer: "Uzunyayla Platosu", type: "tabaka", x: 58.5, y: 51.0, options: ["Erzurum-Kars", "Ardahan Platosu", "Uzunyayla Platosu", "Bozok"] },
-                { answer: "Erzurum-Kars Platosu", type: "volkanik", x: 84.5, y: 27.0, options: ["Teke Platosu", "Çatalca-Kocaeli", "Erzurum-Kars Platosu", "Uzunyayla"] },
-                { answer: "Çatalca-Kocaeli Platosu", type: "asinim", x: 21.0, y: 18.5, options: ["Çatalca-Kocaeli Platosu", "Yazılıkaya", "Teke", "Taşeli"] },
-                { answer: "Teke Platosu", type: "karstik", x: 22.5, y: 72.0, options: ["Taşeli Platosu", "Teke Platosu", "Obruk", "Haymana"] },
-                { answer: "Taşeli Platosu", type: "karstik", x: 39.5, y: 75.0, options: ["Teke Platosu", "Taşeli Platosu", "Cihanbeyli", "Uzunyayla"] },
-                { answer: "Yazılıkaya Platosu", type: "tabaka", x: 25.5, y: 46.5, options: ["Çatalca-Kocaeli", "Bozok", "Obruk", "Yazılıkaya Platosu"] }
+                { answer: "Haymana Platosu", type: "tabaka", x: 42.0, y: 51.0, options: ["Haymana Platosu", "Bozok Platosu", "Obruk Platosu", "Taşeli Platosu"] },
+                { answer: "Cihanbeyli Platosu", type: "tabaka", x: 41.5, y: 56.5, options: ["Uzunyayla", "Cihanbeyli Platosu", "Obruk", "Yazılıkaya"] },
+                { answer: "Obruk Platosu", type: "tabaka", x: 43.5, y: 61.0, options: ["Haymana", "Cihanbeyli", "Obruk Platosu", "Bozok"] },
+                { answer: "Bozok Platosu", type: "tabaka", x: 49.5, y: 50.0, options: ["Bozok Platosu", "Uzunyayla", "Gaziantep Platosu", "Şanlıurfa Platosu"] },
+                { answer: "Uzunyayla Platosu", type: "tabaka", x: 55.5, y: 56.5, options: ["Erzurum-Kars", "Ardahan Platosu", "Uzunyayla Platosu", "Bozok"] },
+                { answer: "Erzurum-Kars Platosu", type: "volkanik", x: 71.5, y: 39.5, options: ["Teke Platosu", "Çatalca-Kocaeli", "Erzurum-Kars Platosu", "Uzunyayla"] },
+                { answer: "Çatalca-Kocaeli Platosu", type: "asinim", x: 33.0, y: 33.0, options: ["Çatalca-Kocaeli Platosu", "Yazılıkaya", "Teke", "Taşeli"] },
+                { answer: "Teke Platosu", type: "karstik", x: 34.0, y: 72.0, options: ["Taşeli Platosu", "Teke Platosu", "Obruk", "Haymana"] },
+                { answer: "Taşeli Platosu", type: "karstik", x: 44.5, y: 74.5, options: ["Teke Platosu", "Taşeli Platosu", "Cihanbeyli", "Uzunyayla"] },
+                { answer: "Yazılıkaya Platosu", type: "tabaka", x: 35.5, y: 53.5, options: ["Çatalca-Kocaeli", "Bozok", "Obruk", "Yazılıkaya Platosu"] }
             ],
             goller: [
-                { answer: "Van Gölü", type: "karma", x: 87.0, y: 53.0, options: ["Tuz Gölü", "Eğirdir Gölü", "Van Gölü", "Beyşehir Gölü"] },
-                { answer: "Tuz Gölü", type: "tektonik", x: 41.5, y: 52.5, options: ["Tuz Gölü", "Burdur Gölü", "İznik Gölü", "Bafa Gölü"] },
-                { answer: "Beyşehir Gölü", type: "karma", x: 28.5, y: 63.0, options: ["Eğirdir Gölü", "Beyşehir Gölü", "Akşehir Gölü", "Eber Gölü"] },
-                { answer: "Eğirdir Gölü", type: "karstik", x: 26.5, y: 61.0, options: ["Burdur Gölü", "Salda Gölü", "Eğirdir Gölü", "Acıgöl"] },
-                { answer: "İznik Gölü", type: "tektonik", x: 19.5, y: 24.0, options: ["İznik Gölü", "Sapanca Gölü", "Uluabat Gölü", "Kuş (Manyas) Gölü"] },
-                { answer: "Burdur Gölü", x: 24.0, y: 63.5, type: "tektonik", options: ["Salda Gölü", "Burdur Gölü", "Eğirdir", "Beyşehir"] },
-                { answer: "Çıldır Gölü", type: "set", x: 87.5, y: 19.5, options: ["Nemrut Gölü", "Erçek Gölü", "Nazik Gölü", "Çıldır Gölü"] },
-                { answer: "Sapanca Gölü", type: "tektonik", x: 22.5, y: 23.0, options: ["Uluabat", "İznik", "Sapanca Gölü", "Terkos"] },
-                { answer: "Bafa (Çamiçi) Gölü", type: "set", x: 8.5, y: 56.5, options: ["Köyceğiz Gölü", "Bafa (Çamiçi) Gölü", "Salda Gölü", "Marmara Gölü"] },
-                { answer: "Salda Gölü", type: "karstik", x: 22.5, y: 65.5, options: ["Salda Gölü", "Burdur Gölü", "Acıgöl", "Eğirdir"] },
-                { answer: "Nemrut Krater Gölü", type: "volkanik", x: 83.5, y: 51.5, options: ["Van Gölü", "Beyşehir Gölü", "Nemrut Krater Gölü", "Çıldır Gölü"] },
-                { answer: "Meke Gölü (Maarı)", type: "volkanik", x: 41.0, y: 62.0, options: ["Meke Gölü (Maarı)", "Tuz Gölü", "Eğirdir Gölü", "Sapanca Gölü"] },
-                { answer: "Kilimli Göl (Uludağ)", type: "buzul", x: 18.5, y: 29.5, options: ["İznik Gölü", "Burdur Gölü", "Salda Gölü", "Kilimli Göl (Uludağ)"] },
-                { answer: "Karagöl (Kaçkar)", type: "buzul", x: 79.5, y: 24.5, options: ["Karagöl (Kaçkar)", "Bafa Gölü", "Sapanca Gölü", "Uluabat Gölü"] }
+                { answer: "Van Gölü", type: "karma", x: 73.0, y: 55.5, options: ["Tuz Gölü", "Eğirdir Gölü", "Van Gölü", "Beyşehir Gölü"] },
+                { answer: "Tuz Gölü", type: "tektonik", x: 44.5, y: 55.5, options: ["Tuz Gölü", "Burdur Gölü", "İznik Gölü", "Bafa Gölü"] },
+                { answer: "Beyşehir Gölü", type: "karma", x: 37.0, y: 64.0, options: ["Eğirdir Gölü", "Beyşehir Gölü", "Akşehir Gölü", "Eber Gölü"] },
+                { answer: "Eğirdir Gölü", type: "karstik", x: 35.5, y: 62.5, options: ["Burdur Gölü", "Salda Gölü", "Eğirdir Gölü", "Acıgöl"] },
+                { answer: "İznik Gölü", type: "tektonik", x: 32.0, y: 37.0, options: ["İznik Gölü", "Sapanca Gölü", "Uluabat Gölü", "Kuş (Manyas) Gölü"] },
+                { answer: "Burdur Gölü", type: "tektonik", x: 34.0, y: 64.5, options: ["Salda Gölü", "Burdur Gölü", "Eğirdir", "Beyşehir"] },
+                { answer: "Çıldır Gölü", type: "set", x: 73.5, y: 34.0, options: ["Nemrut Gölü", "Erçek Gölü", "Nazik Gölü", "Çıldır Gölü"] },
+                { answer: "Sapanca Gölü", type: "tektonik", x: 34.0, y: 36.5, options: ["Uluabat", "İznik", "Sapanca Gölü", "Terkos"] },
+                { answer: "Bafa (Çamiçi) Gölü", type: "set", x: 25.5, y: 59.5, options: ["Köyceğiz Gölü", "Bafa (Çamiçi) Gölü", "Salda Gölü", "Marmara Gölü"] },
+                { answer: "Salda Gölü", type: "karstik", x: 33.5, y: 66.0, options: ["Salda Gölü", "Burdur Gölü", "Acıgöl", "Eğirdir"] },
+                { answer: "Nemrut Krater Gölü", type: "volkanik", x: 71.0, y: 56.5, options: ["Van Gölü", "Beyşehir Gölü", "Nemrut Krater Gölü", "Çıldır Gölü"] },
+                { answer: "Meke Gölü (Maarı)", type: "volkanik", x: 44.5, y: 64.0, options: ["Meke Gölü (Maarı)", "Tuz Gölü", "Eğirdir Gölü", "Sapanca Gölü"] },
+                { answer: "Kilimli Göl (Uludağ)", type: "buzul", x: 31.0, y: 41.0, options: ["İznik Gölü", "Burdur Gölü", "Salda Gölü", "Kilimli Göl (Uludağ)"] },
+                { answer: "Karagöl (Kaçkar)", type: "buzul", x: 68.5, y: 36.5, options: ["Karagöl (Kaçkar)", "Bafa Gölü", "Sapanca Gölü", "Uluabat Gölü"] }
             ],
             akarsular: [
-                { answer: "Kızılırmak", x: 45.5, y: 42.0, options: ["Yeşilırmak", "Fırat", "Kızılırmak", "Menderes"] },
-                { answer: "Yeşilırmak", x: 54.5, y: 31.5, options: ["Kızılırmak", "Çoruh", "Yeşilırmak", "Sakarya"] },
-                { answer: "Fırat Nehri", x: 69.5, y: 63.5, options: ["Dicle", "Çoruh", "Seyhan", "Fırat Nehri"] },
-                { answer: "Dicle Nehri", x: 79.5, y: 65.0, options: ["Fırat Nehri", "Dicle Nehri", "Zap Suyu", "Aras"] },
-                { answer: "Seyhan Nehri", x: 50.5, y: 68.0, options: ["Ceyhan Nehri", "Göksu", "Asi", "Seyhan Nehri"] },
-                { answer: "Sakarya Nehri", x: 29.5, y: 34.0, options: ["Susurluk", "Sakarya Nehri", "Kızılırmak", "Gediz"] },
-                { answer: "Meriç Nehri", x: 6.0, y: 19.5, options: ["Ergene", "Meriç Nehri", "Susurluk", "Bakırçay"] },
-                { answer: "Çoruh Nehri", x: 81.0, y: 24.0, options: ["Kura", "Aras", "Çoruh Nehri", "Yeşilırmak"] },
-                { answer: "Büyük Menderes", x: 12.5, y: 58.5, options: ["Küçük Menderes", "Büyük Menderes", "Gediz", "Bakırçay"] },
-                { answer: "Aras Nehri", x: 88.5, y: 33.5, options: ["Kura Nehri", "Aras Nehri", "Dicle", "Çoruh"] }
+                { answer: "Kızılırmak", x: 47.5, y: 49.0, options: ["Yeşilırmak", "Fırat", "Kızılırmak", "Menderes"] },
+                { answer: "Yeşilırmak", x: 53.0, y: 42.0, options: ["Kızılırmak", "Çoruh", "Yeşilırmak", "Sakarya"] },
+                { answer: "Fırat Nehrı", x: 63.0, y: 63.5, options: ["Dicle", "Çoruh", "Seyhan", "Fırat Nehri"] },
+                { answer: "Dicle Nehrı", x: 69.5, y: 66.5, options: ["Fırat Nehri", "Dicle Nehri", "Zap Suyu", "Aras"] },
+                { answer: "Seyhan Nehrı", x: 50.0, y: 68.0, options: ["Ceyhan Nehri", "Göksu", "Asi", "Seyhan Nehri"] },
+                { answer: "Sakarya Nehrı", x: 36.5, y: 44.0, options: ["Susurluk", "Sakarya Nehri", "Kızılırmak", "Gediz"] },
+                { answer: "Meriç Nehrı", x: 24.5, y: 33.5, options: ["Ergene", "Meriç Nehri", "Susurluk", "Bakırçay"] },
+                { answer: "Çoruh Nehrı", x: 69.5, y: 36.5, options: ["Kura", "Aras", "Çoruh Nehri", "Yeşilırmak"] },
+                { answer: "Büyük Menderes", x: 27.5, y: 61.5, options: ["Küçük Menderes", "Büyük Menderes", "Gediz", "Bakırçay"] },
+                { answer: "Aras Nehrı", x: 74.5, y: 43.0, options: ["Kura Nehri", "Aras Nehri", "Dicle", "Çoruh"] }
             ]
         };
 
