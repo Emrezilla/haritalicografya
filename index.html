@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Haritalarla Coğrafya</title>
+    <title>Haritalı Coğrafya Alıştırması</title>
     <style>
         :root {
             --primary: #2c3e50;
@@ -295,22 +295,22 @@
 </head>
 <body>
 
-    <h1>Haritalarla Coğrafya</h1>
+    <h1>Haritalı Coğrafya Alıştırması</h1>
 
     <div id="app-container">
         
         <!-- Başlangıç Ekranı -->
         <div id="start-screen">
-            <h2>Türkiye Coğrafyasını Keşfetmeye</h2>
-            <button class="question-btn" disabled>Hazır mısın?</button>
-            <button class="ready-btn" onclick="showMenu()">EVET</button>
+            <h2>Oyunu başlatmak için Başla tuşuna bas.</h2>
+            
+            <button class="ready-btn" onclick="showMenu()">Başla</button>
         </div>
 
         <!-- Ana Menü Ekranı -->
         <div id="menu-screen">
             <h2 style="text-align: center; margin-top: 0;">Kategori Seçiniz</h2>
             <button class="category-btn btn-daglar" onclick="showSubMenu('daglar')">⛰️ Dağlar</button>
-            <button class="category-btn btn-ovalar" onclick="showSubMenu('ovalar')">🌿 Ovalar</button>
+            <button class="category-btn btn-ovalar" onclick="showSubMenu('ovalar')">🏕️ Ovalar</button>
             <button class="category-btn btn-platolar" onclick="showSubMenu('platolar')">🏜️ Platolar</button>
             <button class="category-btn btn-goller" onclick="showSubMenu('goller')">🌊 Göller</button>
             <button class="category-btn btn-akarsular" onclick="startGame('akarsular', 'all')">🏞️ Akarsular</button>
