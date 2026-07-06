@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Haritalı Coğrafya Alıştırması</title>
+    <title>Haritalarla Coğrafya</title>
     <style>
         :root {
             --primary: #2c3e50;
@@ -182,7 +182,7 @@
         #map-container {
             position: relative;
             width: 100%;
-            background-image: url('renkli.png');
+            background-image: url('image.png');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -300,7 +300,7 @@
     <div id="app-container">
         
         <div id="start-screen">
-            <h2>Oyunu başlatmak için Başla butonuna bas.</h2>
+            <h2>Türkiye Coğrafyasını Keşfetmeye Hazır mısın?</h2>
             <button class="ready-btn" onclick="showMenu()">Başla</button>
         </div>
 
@@ -419,4 +419,220 @@
                 { answer: "Çatalca-Kocaeli Platosu", type: "asinim", x: 21.0, y: 19.5, options: ["Çatalca-Kocaeli Platosu", "Yazılıkaya", "Teke", "Taşeli"] },
                 { answer: "Teke Platosu", type: "karstik", x: 23.5, y: 72.0, options: ["Taşeli Platosu", "Teke Platosu", "Obruk", "Haymana"] },
                 { answer: "Taşeli Platosu", type: "karstik", x: 41.5, y: 76.0, options: ["Teke Platosu", "Taşeli Platosu", "Cihanbeyli", "Uzunyayla"] },
-                { answer: "Yazılıkaya Platosu", type: "tabaka", x: 25.5, y: 46.5, options: ["Çatalca-Kocaeli", "Bozok", "Obruk", "Yazılıkaya Platosu"]
+                { answer: "Yazılıkaya Platosu", type: "tabaka", x: 25.5, y: 46.5, options: ["Çatalca-Kocaeli", "Bozok", "Obruk", "Yazılıkaya Platosu"] }
+            ],
+            goller: [
+                { answer: "Van Gölü", type: "karma", x: 84.5, y: 54.0, options: ["Tuz Gölü", "Eğirdir Gölü", "Van Gölü", "Beyşehir Gölü"] },
+                { answer: "Tuz Gölü", type: "tektonik", x: 40.5, y: 54.0, options: ["Tuz Gölü", "Burdur Gölü", "İznik Gölü", "Bafa Gölü"] },
+                { answer: "Beyşehir Gölü", type: "karma", x: 28.5, y: 66.0, options: ["Eğirdir Gölü", "Beyşehir Gölü", "Akşehir Gölü", "Eber Gölü"] },
+                { answer: "Eğirdir Gölü", type: "karstik", x: 26.5, y: 62.5, options: ["Burdur Gölü", "Salda Gölü", "Eğirdir Gölü", "Acıgöl"] },
+                { answer: "İznik Gölü", type: "tektonik", x: 21.5, y: 25.0, options: ["İznik Gölü", "Sapanca Gölü", "Uluabat Gölü", "Kuş (Manyas) Gölü"] },
+                { answer: "Burdur Gölü", type: "tektonik", x: 24.0, y: 65.5, options: ["Salda Gölü", "Burdur Gölü", "Eğirdir", "Beyşehir"] },
+                { answer: "Çıldır Gölü", type: "set", x: 87.5, y: 19.5, options: ["Nemrut Gölü", "Erçek Gölü", "Nazik Gölü", "Çıldır Gölü"] },
+                { answer: "Sapanca Gölü", type: "tektonik", x: 24.0, y: 23.0, options: ["Uluabat", "İznik", "Sapanca Gölü", "Terkos"] },
+                { answer: "Bafa (Çamiçi) Gölü", type: "set", x: 8.5, y: 59.5, options: ["Köyceğiz Gölü", "Bafa (Çamiçi) Gölü", "Salda Gölü", "Marmara Gölü"] },
+                { answer: "Salda Gölü", type: "karstik", x: 22.5, y: 67.5, options: ["Salda Gölü", "Burdur Gölü", "Acıgöl", "Eğirdir"] },
+                // Yeni Eklenen Türler (Volkanik ve Buzul Gölleri)
+                { answer: "Nemrut Krater Gölü", type: "volkanik", x: 81.5, y: 51.5, options: ["Van Gölü", "Beyşehir Gölü", "Nemrut Krater Gölü", "Çıldır Gölü"] },
+                { answer: "Meke Gölü (Maarı)", type: "volkanik", x: 41.0, y: 62.0, options: ["Meke Gölü (Maarı)", "Tuz Gölü", "Eğirdir Gölü", "Sapanca Gölü"] },
+                { answer: "Kilimli Göl (Uludağ)", type: "buzul", x: 17.5, y: 31.5, options: ["İznik Gölü", "Burdur Gölü", "Salda Gölü", "Kilimli Göl (Uludağ)"] },
+                { answer: "Karagöl (Kaçkar)", type: "buzul", x: 78.5, y: 26.5, options: ["Karagöl (Kaçkar)", "Bafa Gölü", "Sapanca Gölü", "Uluabat Gölü"] }
+            ],
+            akarsular: [
+                { answer: "Kızılırmak", x: 45.5, y: 42.0, options: ["Yeşilırmak", "Fırat", "Kızılırmak", "Menderes"] },
+                { answer: "Yeşilırmak", x: 55.5, y: 32.5, options: ["Kızılırmak", "Çoruh", "Yeşilırmak", "Sakarya"] },
+                { answer: "Fırat Nehri", x: 69.5, y: 66.5, options: ["Dicle", "Çoruh", "Seyhan", "Fırat Nehri"] },
+                { answer: "Dicle Nehri", x: 79.5, y: 68.0, options: ["Fırat Nehri", "Dicle Nehri", "Zap Suyu", "Aras"] },
+                { answer: "Seyhan Nehri", x: 50.5, y: 70.0, options: ["Ceyhan Nehri", "Göksu", "Asi", "Seyhan Nehri"] },
+                { answer: "Sakarya Nehri", x: 29.5, y: 34.0, options: ["Susurluk", "Sakarya Nehri", "Kızılırmak", "Gediz"] },
+                { answer: "Meriç Nehri", x: 6.0, y: 19.5, options: ["Ergene", "Meriç Nehri", "Susurluk", "Bakırçay"] },
+                { answer: "Çoruh Nehri", x: 81.0, y: 24.0, options: ["Kura", "Aras", "Çoruh Nehri", "Yeşilırmak"] },
+                { answer: "Büyük Menderes", x: 12.5, y: 58.5, options: ["Küçük Menderes", "Büyük Menderes", "Gediz", "Bakırçay"] },
+                { answer: "Aras Nehri", x: 88.5, y: 33.5, options: ["Kura Nehri", "Aras Nehri", "Dicle", "Çoruh"] }
+            ]
+        };
+
+        const categoryNames = {
+            daglar: "Dağlar",
+            ovalar: "Ovalar",
+            platolar: "Platolar",
+            goller: "Göller",
+            akarsular: "Akarsular"
+        };
+
+        // Alt Kategorilerin Tanımları
+        const subCategories = {
+            daglar: [
+                { id: 'kivrimli', name: 'Kıvrımlı Dağlar' },
+                { id: 'kirik', name: 'Kırık Dağlar' },
+                { id: 'volkanik', name: 'Volkanik Dağlar' },
+                { id: 'all', name: 'Tüm Dağlar (Karma)' }
+            ],
+            ovalar: [
+                { id: 'tektonik', name: 'Tektonik Ovalar' },
+                { id: 'karstik', name: 'Karstik Ovalar' },
+                { id: 'delta', name: 'Delta Ovaları' },
+                { id: 'volkanik', name: 'Volkanik Ovalar' },
+                { id: 'all', name: 'Tüm Ovalar (Karma)' }
+            ],
+            platolar: [
+                { id: 'asinim', name: 'Aşınım Platoları' },
+                { id: 'volkanik', name: 'Volkanik Platolar' },
+                { id: 'tabaka', name: 'Tabaka Düzlüğü' },
+                { id: 'karstik', name: 'Karstik Platolar' },
+                { id: 'all', name: 'Tüm Platolar (Karma)' }
+            ],
+            goller: [
+                { id: 'tektonik', name: 'Tektonik Göller' },
+                { id: 'karstik', name: 'Karstik Göller' },
+                { id: 'volkanik', name: 'Volkanik Göller' },
+                { id: 'buzul', name: 'Buzul Göller' },
+                { id: 'set', name: 'Set Gölleri' },
+                { id: 'karma', name: 'Karma Oluşumlu Göller' },
+                { id: 'all', name: 'Tüm Göller (Karma)' }
+            ]
+        };
+
+        // Oyun Değişkenleri
+        let currentQuestions = [];
+        let currentIndex = 0;
+        let score = 0;
+        let currentCategoryName = "";
+
+        // Ekran elementleri
+        const startScreen = document.getElementById('start-screen');
+        const menuScreen = document.getElementById('menu-screen');
+        const subMenuScreen = document.getElementById('sub-menu-screen');
+        const gameScreen = document.getElementById('game-screen');
+        const resultScreen = document.getElementById('result-screen');
+        const marker = document.getElementById('marker');
+        const nextBtn = document.getElementById('next-btn');
+
+        // Menüyü Göster
+        function showMenu() {
+            startScreen.style.display = 'none';
+            gameScreen.style.display = 'none';
+            resultScreen.style.display = 'none';
+            subMenuScreen.style.display = 'none';
+            menuScreen.style.display = 'flex';
+        }
+
+        // Alt Menüyü Göster
+        function showSubMenu(category) {
+            menuScreen.style.display = 'none';
+            subMenuScreen.style.display = 'flex';
+            
+            document.getElementById('sub-menu-title').innerText = categoryNames[category] + " Türleri";
+            const btnContainer = document.getElementById('sub-menu-buttons');
+            btnContainer.innerHTML = ''; 
+            
+            subCategories[category].forEach(sub => {
+                const btn = document.createElement('button');
+                btn.className = 'sub-category-btn' + (sub.id === 'all' ? ' all-btn' : '');
+                btn.innerText = sub.name;
+                btn.onclick = () => startGame(category, sub.id, sub.name);
+                btnContainer.appendChild(btn);
+            });
+        }
+
+        // Oyunu Başlat
+        function startGame(category, subCategory, subCategoryName) {
+            if(subCategory === 'all' || !subCategory) {
+                currentQuestions = [...db[category]];
+                currentCategoryName = categoryNames[category] + " (Karma)";
+            } else {
+                currentQuestions = db[category].filter(q => q.type === subCategory);
+                currentCategoryName = subCategoryName;
+            }
+
+            if (currentQuestions.length === 0) {
+                alert("Bu alt kategoride henüz soru bulunmamaktadır. Lütfen farklı bir kategori seçin.");
+                return;
+            }
+            
+            currentQuestions.sort(() => Math.random() - 0.5);
+            currentIndex = 0;
+            score = 0;
+            
+            if(category === 'akarsular') currentCategoryName = categoryNames[category];
+
+            document.getElementById('category-title').innerText = currentCategoryName;
+            
+            menuScreen.style.display = 'none';
+            subMenuScreen.style.display = 'none';
+            resultScreen.style.display = 'none';
+            gameScreen.style.display = 'flex';
+            
+            loadQuestion();
+        }
+
+        // Soruyu Yükle
+        function loadQuestion() {
+            nextBtn.style.display = 'none';
+            const q = currentQuestions[currentIndex];
+            
+            marker.style.left = q.x + '%';
+            marker.style.top = q.y + '%';
+
+            let shuffledOptions = [...q.options].sort(() => Math.random() - 0.5);
+            q.correctIndex = shuffledOptions.indexOf(q.answer);
+
+            for(let i=0; i<4; i++) {
+                const btn = document.getElementById('btn' + i);
+                btn.innerText = shuffledOptions[i];
+                btn.className = 'option-btn'; 
+                btn.disabled = false; 
+            }
+            
+            updateScoreBoard();
+        }
+
+        // Cevabı Kontrol Et
+        function checkAnswer(selectedIndex) {
+            const q = currentQuestions[currentIndex];
+            const isCorrect = (selectedIndex === q.correctIndex);
+            
+            const selectedBtn = document.getElementById('btn' + selectedIndex);
+            const correctBtn = document.getElementById('btn' + q.correctIndex);
+
+            for(let i=0; i<4; i++) {
+                document.getElementById('btn' + i).disabled = true;
+            }
+
+            if (isCorrect) {
+                selectedBtn.classList.add('correct');
+                score += 10;
+            } else {
+                selectedBtn.classList.add('wrong');
+                correctBtn.classList.add('correct'); 
+            }
+            
+            updateScoreBoard();
+            nextBtn.style.display = 'block'; 
+        }
+
+        // Sonraki Soruya Geç
+        function nextQuestion() {
+            currentIndex++;
+            if (currentIndex < currentQuestions.length) {
+                loadQuestion();
+            } else {
+                endGame();
+            }
+        }
+
+        // Puan Tablosunu Güncelle
+        function updateScoreBoard() {
+            document.getElementById('score-display').innerText = 
+                `Soru: ${currentIndex + 1}/${currentQuestions.length} | Puan: ${score}`;
+        }
+
+        // Oyunu Bitir
+        function endGame() {
+            gameScreen.style.display = 'none';
+            resultScreen.style.display = 'flex';
+            document.getElementById('final-score').innerText = `Toplam Puanınız: ${score}`;
+        }
+    </script>
+</body>
+</html>
