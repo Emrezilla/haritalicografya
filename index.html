@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
@@ -340,6 +340,17 @@
     </div>
 
     <script>
+        // --- SES EFEKTLERİ ---
+        const clickSound = new Audio('https://actions.google.com/sounds/v1/ui/button_click.ogg');
+        const correctSound = new Audio('https://actions.google.com/sounds/v1/cartoon/woodpecker.ogg'); // Doğru cevap efekti
+        const wrongSound = new Audio('https://actions.google.com/sounds/v1/ui/error_beep.ogg'); // Yanlış cevap efekti
+
+        // Sesi sorunsuz çalmak için yardımcı fonksiyon
+        function playSound(sound) {
+            sound.currentTime = 0; // Sesi başa sar (peş peşe tıklamalar için)
+            sound.play().catch(err => console.log("Ses çalma engellendi veya hata oluştu:", err));
+        }
+
         // Görseldeki (1000005216.png) harita boşluklarına göre tam kalibre edilmiş DB
         const db = {
             daglar: [
@@ -543,6 +554,7 @@
         const nextBtn = document.getElementById('next-btn');
 
         function showMenu() {
+            playSound(clickSound);
             startScreen.style.display = 'none';
             gameScreen.style.display = 'none';
             resultScreen.style.display = 'none';
@@ -551,6 +563,7 @@
         }
 
         function showSubMenu(category) {
+            playSound(clickSound);
             menuScreen.style.display = 'none';
             subMenuScreen.style.display = 'flex';
             
@@ -568,6 +581,8 @@
         }
 
         function startGame(category, subCategory, subCategoryName) {
+            playSound(clickSound);
+            
             if(subCategory === 'all' || !subCategory) {
                 currentQuestions = [...db[category]];
                 currentCategoryName = categoryNames[category] + " (Karma)";
@@ -631,9 +646,11 @@
             if (isCorrect) {
                 selectedBtn.classList.add('correct');
                 score += 10;
+                playSound(correctSound); // Doğru sesini çal
             } else {
                 selectedBtn.classList.add('wrong');
                 correctBtn.classList.add('correct'); 
+                playSound(wrongSound); // Yanlış sesini çal
             }
             
             updateScoreBoard();
@@ -641,6 +658,7 @@
         }
 
         function nextQuestion() {
+            playSound(clickSound);
             currentIndex++;
             if (currentIndex < currentQuestions.length) {
                 loadQuestion();
@@ -659,16 +677,17 @@
             resultScreen.style.display = 'flex';
             document.getElementById('final-score').innerText = `Toplam Puanınız: ${score}`;
         }
+
         // HARİTAYA TIKLAYARAK KOORDİNAT BULMA ARACI (Geliştirme aşaması için)
-document.getElementById('map-container').addEventListener('click', function(e) {
-    const rect = this.getBoundingClientRect();
-    const x = ((e.clientX - rect.left) / rect.width) * 100;
-    const y = ((e.clientY - rect.top) / rect.height) * 100;
-    
-    // Tıkladığınız yerin koordinatlarını ekranda uyarı olarak gösterir
-    alert(`Bu noktanın koordinatı:\nx: ${x.toFixed(1)}, y: ${y.toFixed(1)}`);
-    console.log(`x: ${x.toFixed(1)}, y: ${y.toFixed(1)}`);
-});
+        document.getElementById('map-container').addEventListener('click', function(e) {
+            const rect = this.getBoundingClientRect();
+            const x = ((e.clientX - rect.left) / rect.width) * 100;
+            const y = ((e.clientY - rect.top) / rect.height) * 100;
+            
+            // Tıkladığınız yerin koordinatlarını ekranda uyarı olarak gösterir
+            alert(`Bu noktanın koordinatı:\nx: ${x.toFixed(1)}, y: ${y.toFixed(1)}`);
+            console.log(`x: ${x.toFixed(1)}, y: ${y.toFixed(1)}`);
+        });
 
     </script>
 </body>
