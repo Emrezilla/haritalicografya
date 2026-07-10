@@ -156,10 +156,10 @@
             background-color: var(--wrong);
             color: white;
             border: none;
-            padding: 8px 12px;
-            border-radius: 5px;
+            padding: 4px 8px;
+            border-radius: 3px;
             cursor: pointer;
-            font-size: 14px;
+            font-size: 8px;
             transition: background 0.2s;
         }
 
@@ -310,7 +310,7 @@
             <div class="header">
                 <button class="back-menu-btn" onclick="showMenu()">🔙 Menüye Dön</button>
                 <span id="category-title" style="flex:1; text-align: center;">Kategori</span>
-                <span id="score-display" style="font-size: 14px;">Soru: 1/1 | Puan: 0</span>
+                <span id="score-display" style="font-size: 10px;">Soru: 1/1 | Puan: 0</span>
             </div>
             
             <div id="map-container">
@@ -341,7 +341,7 @@
 
     <script>
         // --- SES EFEKTLERİ ---
-        const clickSound = new Audio('https://actions.google.com/sounds/v1/ui/button_click.ogg');
+        const clickSound = new Audio('menubutton.mp3');
         const correctSound = new Audio('dogrucevap.mp3'); // Doğru cevap efekti
         const wrongSound = new Audio('yanliscevap.mp3'); // Yanlış cevap efekti
 
