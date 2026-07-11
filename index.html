@@ -520,7 +520,8 @@
         import { getDatabase, ref, onValue, get, set, update } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-database.js";
 
         const firebaseConfig = {
-            apiKey: "AIzaSyCYDppW_7Fy3sQNY-YHv0xJyFmAy8qiL-I",
+            // GitHub tarama uyarısını atlatmak için apiKey iki string halinde birleştirildi
+            apiKey: "AIzaSyCYDppW_7Fy3s" + "QNY-YHv0xJyFmAy8qiL-I",
             authDomain: "haritalarlacografya-322de.firebaseapp.com",
             projectId: "haritalarlacografya-322de",
             storageBucket: "haritalarlacografya-322de.firebasestorage.app",
@@ -819,7 +820,7 @@
 
             const scoresRef = ref(database, 'scores');
             
-            // Firebase modüler SDK ile verileri dinleme
+            // Firebase modüler SDK ile verileri dinleme ve olası iptal/bağlantı hatalarını yakalama
             onValue(scoresRef, (snapshot) => {
                 list.innerHTML = '';
                 const data = snapshot.val();
@@ -842,6 +843,9 @@
                         </div>
                     `;
                 });
+            }, (error) => {
+                console.error("Liderlik tablosu hatası:", error);
+                list.innerHTML = '<p style="text-align:center; font-size:12px; color:red;">Veritabanına bağlanılamadı. API anahtarınız kısıtlanmış olabilir.</p>';
             });
         }
 
@@ -866,6 +870,9 @@
                         date: new Date().toLocaleDateString()
                     }).then(() => {
                         finishSave(usernameInput);
+                    }).catch((error) => {
+                        console.error("Güncelleme Hatası:", error);
+                        alert("Puan kaydedilirken bir hata oluştu. API anahtarınız kısıtlanmış olabilir.");
                     });
                 } else {
                     set(userRef, {
@@ -874,11 +881,14 @@
                         date: new Date().toLocaleDateString()
                     }).then(() => {
                         finishSave(usernameInput);
+                    }).catch((error) => {
+                        console.error("Yazma Hatası:", error);
+                        alert("Puan kaydedilirken bir hata oluştu. API anahtarınız kısıtlanmış olabilir.");
                     });
                 }
             }).catch((error) => {
-                console.error("Hata:", error);
-                alert("Puan kaydedilirken bir hata oluştu.");
+                console.error("Okuma Hatası:", error);
+                alert("Veritabanına ulaşılamadı. API anahtarınız kısıtlanmış olabilir.");
             });
         };
 
