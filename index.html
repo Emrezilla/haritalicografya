@@ -14,32 +14,25 @@
             --light: #ecf0f1;
         }
 
-        /* Tüm elementlerin genişlik ve yükseklik hesaplamasına iç boşlukları dahil et */
-        * {
-            box-sizing: border-box;
-        }
-
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=2070&auto=format&fit=crop') no-repeat center center fixed;
             background-size: cover;
             color: var(--primary);
             margin: 0;
-            padding: 10px; /* Küçültüldü */
+            padding: 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            min-height: 100dvh; /* Mobil tarayıcılar için vh yerine dvh kullanıldı */
-            overflow-x: hidden;
+            min-height: 100vh;
         }
 
         h1 {
             text-align: center;
             color: white;
-            font-size: 26px; /* Ekrandan tasarruf için küçültüldü */
+            font-size: 36px;
             text-shadow: 2px 2px 6px rgba(0,0,0,0.8);
-            margin-top: 10px;
-            margin-bottom: 15px; /* Küçültüldü */
+            margin-bottom: 20px;
         }
 
         #app-container {
@@ -47,7 +40,6 @@
             max-width: 1000px;
             background: transparent;
             padding: 10px;
-            padding-bottom: 45px; /* Geliştirici yazısının butonları örtmemesi için alt boşluk eklendi */
             position: relative;
             display: flex;
             flex-direction: column;
@@ -60,20 +52,15 @@
             color: white;
             text-shadow: 2px 2px 5px rgba(0,0,0,0.8);
         }
-        
-        h2 {
-            font-size: 20px;
-        }
 
-        /* Puan Tablosu İkonu ve Modalı */
         .trophy-btn {
             position: fixed;
-            top: 10px;
-            left: 10px;
-            font-size: 18px; 
+            top: 20px;
+            left: 20px;
+            font-size: 20px;
             cursor: pointer;
             background: rgba(255, 215, 0, 0.2);
-            padding: 6px; 
+            padding: 8px;
             border-radius: 50%;
             border: 2px solid #f1c40f;
             transition: transform 0.3s, background 0.3s;
@@ -88,8 +75,8 @@
         #leaderboard-panel {
             display: none;
             position: absolute;
-            top: 15px;
-            left: 60px;
+            top: 20px;
+            left: 70px;
             background: white;
             border: 2px solid var(--accent);
             border-radius: 8px;
@@ -105,7 +92,7 @@
             margin-top: 0;
             text-align: center;
             color: var(--primary);
-            text-shadow: none; 
+            text-shadow: none;
             border-bottom: 2px solid var(--light);
             padding-bottom: 10px;
         }
@@ -123,15 +110,14 @@
             border-bottom: none;
         }
 
-        /* Ayarlar İkonu ve Modalı */
         .settings-icon-btn {
             position: fixed;
-            top: 55px; 
-            left: 10px;
-            font-size: 18px; 
+            top: 70px;
+            left: 20px;
+            font-size: 20px;
             cursor: pointer;
             background: rgba(52, 152, 219, 0.2);
-            padding: 6px; 
+            padding: 8px;
             border-radius: 50%;
             border: 2px solid #3498db;
             transition: transform 0.3s, background 0.3s;
@@ -146,8 +132,8 @@
         #settings-panel {
             display: none;
             position: absolute;
-            top: 55px;
-            left: 60px;
+            top: 70px;
+            left: 70px;
             background: white;
             border: 2px solid var(--accent);
             border-radius: 8px;
@@ -191,20 +177,19 @@
             background-color: var(--wrong);
         }
 
-        /* Başlangıç Ekranı */
         #start-screen {
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
             gap: 15px;
-            padding: 20px 0;
+            padding: 40px 0;
             width: 100%;
         }
 
         .ready-btn {
-            padding: 15px 50px;
-            font-size: 24px;
+            padding: 20px 60px;
+            font-size: 26px;
             font-weight: bold;
             background-color: var(--correct);
             color: white;
@@ -221,28 +206,26 @@
             transform: scale(1.05);
         }
 
-        /* Ana Menü Ekranı */
         #menu-screen {
             display: none;
             flex-direction: column;
-            gap: 10px; /* Buton aralıkları küçültüldü */
+            gap: 15px;
             width: 100%;
             max-width: 400px;
         }
 
-        /* Alt Menü Ekranı */
         #sub-menu-screen {
             display: none;
             flex-direction: column;
-            gap: 10px; /* Buton aralıkları küçültüldü */
+            gap: 15px;
             width: 100%;
             max-width: 400px;
             margin: 0 auto;
         }
 
         .category-btn {
-            padding: 12px; /* Dikey alan kazanmak için küçültüldü */
-            font-size: 16px;
+            padding: 15px;
+            font-size: 18px;
             font-weight: bold;
             color: white;
             border: none;
@@ -258,8 +241,8 @@
         }
 
         .sub-category-btn {
-            padding: 10px; /* Dikey alan kazanmak için küçültüldü */
-            font-size: 14px;
+            padding: 12px;
+            font-size: 16px;
             font-weight: bold;
             color: white;
             background-color: var(--secondary);
@@ -277,21 +260,19 @@
 
         .sub-category-btn.all-btn {
             background-color: var(--accent);
-            margin-top: 5px;
+            margin-top: 10px;
         }
 
-        /* Kategori Renkleri */
         .btn-daglar { background-color: #8B4513; }      
         .btn-ovalar { background-color: #27ae60; }      
         .btn-platolar { background-color: #d35400; }    
         .btn-akarsular { background-color: #2980b9; }   
         .btn-goller { background-color: #191970; }      
 
-        /* Oyun Ekranı */
         #game-screen {
             display: none;
             flex-direction: column;
-            gap: 15px; /* Aralıklar küçültüldü */
+            gap: 20px;
             width: 100%;
         }
 
@@ -299,10 +280,10 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-size: 16px;
+            font-size: 18px;
             font-weight: bold;
             border-bottom: 2px solid rgba(255,255,255,0.3);
-            padding-bottom: 8px;
+            padding-bottom: 10px;
             width: 100%;
         }
 
@@ -310,7 +291,7 @@
             background-color: var(--wrong);
             color: white;
             border: none;
-            padding: 10px 14px;
+            padding: 12px 16px;
             border-radius: 3px;
             cursor: pointer;
             font-size: 10px;
@@ -322,7 +303,6 @@
             background-color: #c0392b;
         }
 
-        /* Harita Alanı */
         #map-container {
             position: relative;
             width: 100%;
@@ -355,17 +335,16 @@
             100% { box-shadow: 0 0 0 0 rgba(231, 76, 60, 0); }
         }
 
-        /* Şıklar */
         #options-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 10px; /* Boşluklar azaltıldı */
+            gap: 15px;
             width: 100%;
         }
 
         .option-btn {
-            padding: 12px; /* Dikey alan kazancı */
-            font-size: 14px;
+            padding: 15px;
+            font-size: 16px;
             font-weight: bold;
             background-color: var(--secondary);
             color: white;
@@ -384,7 +363,6 @@
         .option-btn.wrong { background-color: var(--wrong) !important; }
         .option-btn:disabled { cursor: not-allowed; }
 
-        /* Sonuç Ekranı */
         #result-screen {
             display: none;
             text-align: center;
@@ -422,19 +400,18 @@
 
         .developer-credit {
             position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
+            bottom: 5px;
+            right: 5px;
+            background-color: rgba(0, 0, 0, 0.7);
             color: white;
-            padding: 6px;
-            font-size: 11px;
-            box-shadow: 0 -2px 10px rgba(0,0,0,0.3);
+            padding: 4px 8px;
+            border-radius: 10px;
+            font-size: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
             z-index: 1000;
             display: flex;
             align-items: center;
-            justify-content: center; /* Merkeze hizalandı */
-            gap: 8px;
+            gap: 5px;
         }
 
         .developer-credit a {
@@ -461,7 +438,8 @@
         <div id="leaderboard-panel">
             <h3>Puan Tablosu</h3>
             <div id="leaderboard-list">
-                </div>
+                <!-- Skorlar buraya JS ile eklenecek -->
+            </div>
             <div style="text-align: center; margin-top: 10px;">
                 <button class="home-btn" style="padding: 5px 10px; font-size: 12px;" onclick="toggleLeaderboard()">Kapat</button>
             </div>
@@ -495,8 +473,8 @@
 
         <div id="sub-menu-screen">
             <h2 id="sub-menu-title" style="text-align: center; margin-top: 0;">Alt Kategori Seçiniz</h2>
-            <div id="sub-menu-buttons" style="display: flex; flex-direction: column; gap: 8px;"></div>
-            <button class="back-menu-btn" onclick="showMenu()" style="margin-top: 10px;">🔙 Ana Menüye Dön</button>
+            <div id="sub-menu-buttons" style="display: flex; flex-direction: column; gap: 10px;"></div>
+            <button class="back-menu-btn" onclick="showMenu()" style="margin-top: 15px;">🔙 Ana Menüye Dön</button>
         </div>
 
         <div id="game-screen">
@@ -534,13 +512,31 @@
         <a href="mailto:emrenel1052@gmail.com">✉️ emrenel1052@gmail.com</a>
     </div>
 
-    <script>
-        // --- SES VE MÜZİK AYARLARI ---
+    <!-- Tırnak içindeki type="module" çok önemlidir, Firebase v12 sadece modüler çalışır -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-analytics.js";
+        // Veritabanı işlemleri için gerekli fonksiyonları dahil ediyoruz
+        import { getDatabase, ref, onValue, get, set, update } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-database.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyCYDppW_7Fy3sQNY-YHv0xJyFmAy8qiL-I",
+            authDomain: "haritalarlacografya-322de.firebaseapp.com",
+            projectId: "haritalarlacografya-322de",
+            storageBucket: "haritalarlacografya-322de.firebasestorage.app",
+            messagingSenderId: "1022060672702",
+            appId: "1:1022060672702:web:29d9acbf0367955c5710ef",
+            measurementId: "G-JEX5EJJQT1"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const database = getDatabase(app);
+
         const clickSound = new Audio('menuses.mp3'); 
         const correctSound = new Audio('dogrucevap.mp3'); 
         const wrongSound = new Audio('yanliscevap.mp3'); 
         
-        // Ana Menü Müziği
         const bgMusic = new Audio('Menumuzik.mp3');
         bgMusic.loop = true; 
         bgMusic.volume = 0.5;
@@ -549,18 +545,18 @@
         let isSoundOn = true;
         let gameStarted = false;
 
-        function toggleSettings() {
+        // Modüler yapıda HTML'den fonksiyon çağrılabilmesi için 'window' objesine eklenir
+        window.toggleSettings = function() {
             const panel = document.getElementById('settings-panel');
             if (panel.style.display === 'none' || panel.style.display === '') {
                 panel.style.display = 'block';
-                // Puan tablosu açıksa çakışmayı önlemek için kapat
                 document.getElementById('leaderboard-panel').style.display = 'none';
             } else {
                 panel.style.display = 'none';
             }
-        }
+        };
 
-        function toggleMusic() {
+        window.toggleMusic = function() {
             isMusicOn = !isMusicOn;
             const btn = document.getElementById('music-btn');
             if(isMusicOn) {
@@ -572,9 +568,9 @@
                 btn.classList.add('off');
                 bgMusic.pause();
             }
-        }
+        };
 
-        function toggleSound() {
+        window.toggleSound = function() {
             isSoundOn = !isSoundOn;
             const btn = document.getElementById('sound-btn');
             if(isSoundOn) {
@@ -584,7 +580,7 @@
                 btn.innerText = "🔇 Sesler: Kapalı";
                 btn.classList.add('off');
             }
-        }
+        };
 
         function playSound(sound) {
             if(!isSoundOn) return;
@@ -602,7 +598,6 @@
             bgMusic.pause();
         }
 
-        // DB
         const db = {
             daglar: [
                 { answer: "Ağrı Dağı", type: "volkanik", x: 88.0, y: 40.0, options: ["Tecer", "Ağrı Dağı", "Ilgaz Dağı", "Kaçkar Dağı"] },
@@ -804,41 +799,53 @@
         const marker = document.getElementById('marker');
         const nextBtn = document.getElementById('next-btn');
 
-        // Puan Tablosu Fonksiyonları
-        function toggleLeaderboard() {
+
+        // --- FIREBASE İLE LİDERLİK TABLOSU ---
+
+        window.toggleLeaderboard = function() {
             const panel = document.getElementById('leaderboard-panel');
             if (panel.style.display === 'none' || panel.style.display === '') {
                 loadLeaderboard();
                 panel.style.display = 'block';
-                // Puan tablosu açıldığında ayarlar paneli açıksa kapat
                 document.getElementById('settings-panel').style.display = 'none';
             } else {
                 panel.style.display = 'none';
             }
-        }
+        };
 
         function loadLeaderboard() {
             const list = document.getElementById('leaderboard-list');
-            list.innerHTML = '';
-            let scores = JSON.parse(localStorage.getItem('cografya_scores')) || [];
-            
-            if (scores.length === 0) {
-                list.innerHTML = '<p style="text-align:center; font-size:12px;">Henüz skor kaydedilmemiş.</p>';
-                return;
-            }
+            list.innerHTML = '<p style="text-align:center; font-size:12px;">Yükleniyor...</p>';
 
-            // Puanları en yüksekten en düşüğe sırala ve ilk 10'u göster
-            scores.sort((a, b) => b.score - a.score).slice(0, 10).forEach((item, index) => {
-                list.innerHTML += `
-                    <div class="score-item">
-                        <span><strong>${index + 1}.</strong> ${item.name}</span>
-                        <span>${item.score} Puan</span>
-                    </div>
-                `;
+            const scoresRef = ref(database, 'scores');
+            
+            // Firebase modüler SDK ile verileri dinleme
+            onValue(scoresRef, (snapshot) => {
+                list.innerHTML = '';
+                const data = snapshot.val();
+                
+                if (!data) {
+                    list.innerHTML = '<p style="text-align:center; font-size:12px;">Henüz skor kaydedilmemiş.</p>';
+                    return;
+                }
+
+                let scoresArray = [];
+                for (let key in data) {
+                    scoresArray.push(data[key]);
+                }
+
+                scoresArray.sort((a, b) => b.score - a.score).slice(0, 10).forEach((item, index) => {
+                    list.innerHTML += `
+                        <div class="score-item">
+                            <span><strong>${index + 1}.</strong> ${item.name}</span>
+                            <span>${item.score} Puan</span>
+                        </div>
+                    `;
+                });
             });
         }
 
-        function saveScore() {
+        window.saveScore = function() {
             const usernameInput = document.getElementById('username-input');
             const username = usernameInput.value.trim();
             
@@ -847,29 +854,51 @@
                 return;
             }
 
-            let scores = JSON.parse(localStorage.getItem('cografya_scores')) || [];
-            scores.push({
-                name: username,
-                score: score,
-                date: new Date().toLocaleDateString()
+            const userKey = username.toLowerCase().replace(/\s+/g, '');
+            const userRef = ref(database, 'scores/' + userKey);
+
+            // Modüler SDK ile veri çekme ve güncelleme
+            get(userRef).then((snapshot) => {
+                if (snapshot.exists()) {
+                    let existingScore = snapshot.val().score;
+                    update(userRef, {
+                        score: existingScore + score,
+                        date: new Date().toLocaleDateString()
+                    }).then(() => {
+                        finishSave(usernameInput);
+                    });
+                } else {
+                    set(userRef, {
+                        name: username,
+                        score: score,
+                        date: new Date().toLocaleDateString()
+                    }).then(() => {
+                        finishSave(usernameInput);
+                    });
+                }
+            }).catch((error) => {
+                console.error("Hata:", error);
+                alert("Puan kaydedilirken bir hata oluştu.");
             });
-            
-            localStorage.setItem('cografya_scores', JSON.stringify(scores));
-            
-            usernameInput.value = ""; // Alanı temizle
-            showMenu();
+        };
+
+        function finishSave(input) {
+            input.value = ""; 
+            window.showMenu();
+            alert("Puanın başarıyla global tabloya eklendi!");
         }
 
-        // Oyunu Başlatan Fonksiyon ("Evet" Butonu İçin)
-        function initializeGame() {
+        // --- OYUN FONKSİYONLARI ---
+
+        window.initializeGame = function() {
             playSound(clickSound);
             playMenuMusic();
             
             startScreen.style.display = 'none';
             menuScreen.style.display = 'flex';
-        }
+        };
 
-        function showMenu() {
+        window.showMenu = function() {
             playSound(clickSound);
             gameStarted = false;
             playMenuMusic(); 
@@ -879,9 +908,9 @@
             resultScreen.style.display = 'none';
             subMenuScreen.style.display = 'none';
             menuScreen.style.display = 'flex';
-        }
+        };
 
-        function showSubMenu(category) {
+        window.showSubMenu = function(category) {
             playSound(clickSound);
             menuScreen.style.display = 'none';
             subMenuScreen.style.display = 'flex';
@@ -894,12 +923,12 @@
                 const btn = document.createElement('button');
                 btn.className = 'sub-category-btn' + (sub.id === 'all' ? ' all-btn' : '');
                 btn.innerText = sub.name;
-                btn.onclick = () => startGame(category, sub.id, sub.name);
+                btn.onclick = () => window.startGame(category, sub.id, sub.name);
                 btnContainer.appendChild(btn);
             });
-        }
+        };
 
-        function startGame(category, subCategory, subCategoryName) {
+        window.startGame = function(category, subCategory, subCategoryName) {
             playSound(clickSound);
             
             if(subCategory === 'all' || !subCategory) {
@@ -916,7 +945,7 @@
             }
             
             gameStarted = true;
-            stopMenuMusic(); // Kategori seçilip oyun başlayınca müziği kapatıyoruz
+            stopMenuMusic(); 
 
             currentQuestions.sort(() => Math.random() - 0.5);
             currentIndex = 0;
@@ -932,7 +961,7 @@
             gameScreen.style.display = 'flex';
             
             loadQuestion();
-        }
+        };
 
         function loadQuestion() {
             nextBtn.style.display = 'none';
@@ -954,7 +983,7 @@
             updateScoreBoard();
         }
 
-        function checkAnswer(selectedIndex) {
+        window.checkAnswer = function(selectedIndex) {
             const q = currentQuestions[currentIndex];
             const isCorrect = (selectedIndex === q.correctIndex);
             
@@ -977,9 +1006,9 @@
             
             updateScoreBoard();
             nextBtn.style.display = 'block'; 
-        }
+        };
 
-        function nextQuestion() {
+        window.nextQuestion = function() {
             playSound(clickSound);
             currentIndex++;
             if (currentIndex < currentQuestions.length) {
@@ -987,7 +1016,7 @@
             } else {
                 endGame();
             }
-        }
+        };
 
         function updateScoreBoard() {
             document.getElementById('score-display').innerText = 
@@ -1000,7 +1029,6 @@
             document.getElementById('final-score').innerText = `Toplam Puanınız: ${score}`;
         }
 
-        // HARİTAYA TIKLAYARAK KOORDİNAT BULMA ARACI (Geliştirme aşaması için)
         document.getElementById('map-container').addEventListener('click', function(e) {
             const rect = this.getBoundingClientRect();
             const x = ((e.clientX - rect.left) / rect.width) * 100;
