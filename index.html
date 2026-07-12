@@ -277,6 +277,7 @@
             border-radius: 5px;
             overflow: hidden;
             box-shadow: 0 8px 25px rgba(0,0,0,0.6);
+            cursor: crosshair; /* Haritaya tıklanabilir olduğunu belli etmek için imleci değiştirdim */
         }
 
         #marker {
@@ -864,11 +865,22 @@
 
         // HARİTAYA TIKLAYARAK KOORDİNAT BULMA ARACI (Geliştirme aşaması için)
         document.getElementById('map-container').addEventListener('click', function(e) {
-            const rect = this.getBoundingClientRect();
-            const x = ((e.clientX - rect.left) / rect.width) * 100;
-            const y = ((e.clientY - rect.top) / rect.height) * 100;
+            // Marker veya başka bir elemente tıklanırsa olayı map-container seviyesine bağlamak için engelle
+            if (e.target !== this && e.target.id !== 'marker') return;
             
-            console.log(`x: ${x.toFixed(1)}, y: ${y.toFixed(1)}`);
+            const rect = this.getBoundingClientRect();
+            let clickX = e.clientX;
+            let clickY = e.clientY;
+            
+            const x = ((clickX - rect.left) / rect.width) * 100;
+            const y = ((clickY - rect.top) / rect.height) * 100;
+            
+            const coordText = `x: ${x.toFixed(1)}, y: ${y.toFixed(1)}`;
+            
+            console.log(coordText); // Geliştirici konsoluna yazdır
+            
+            // Ekranda direkt olarak göster
+            alert(`Tıklanan noktanın koordinatları:\n\n${coordText}`);
         });
 
     </script>
